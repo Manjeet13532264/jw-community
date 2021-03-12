@@ -265,7 +265,7 @@ public class JsonTool extends DefaultApplicationPlugin {
             String jsonObjectName = WorkflowUtil.processVariable(mapping.get("jsonObjectName").toString(), null, wfAssignment, null, null);
 
             if (multirowBaseObjectName != null) {
-                jsonObjectName = jsonObjectName.replace(multirowBaseObjectName, multirowBaseObjectName + "[" + rowNumber + "]");
+                jsonObjectName = jsonObjectName.replace(multirowBaseObjectName, multirowBaseObjectName + multirowBaseObjectName + "[" + rowNumber + "]");
             }
 
             String value = (String) getObjectFromMap(jsonObjectName, object);

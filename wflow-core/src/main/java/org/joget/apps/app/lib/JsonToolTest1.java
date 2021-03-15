@@ -152,6 +152,10 @@ public class JsonTool extends DefaultApplicationPlugin {
                 String jsonResponse = EntityUtils.toString(response.getEntity(), "UTF-8");
                 if (jsonResponse != null && !jsonResponse.isEmpty()) {
                     if (jsonResponse.startsWith("[") && jsonResponse.endsWith("]")) {
+                        
+                        
+                        
+                        
                         jsonResponse = "{ \"response\" : " + jsonResponse + " }";
                     }
                     if ("true".equalsIgnoreCase(getPropertyString("debugMode"))) {
@@ -197,17 +201,22 @@ public class JsonTool extends DefaultApplicationPlugin {
                 Object[] baseObjectArray = (Object[]) getObjectFromMap(multirowBaseObjectName, object);
                 if (baseObjectArray != null && baseObjectArray.length > 0) {
                     rowSet.setMultiRow(true);
+                    
                     for (int i = 0; i < baseObjectArray.length; i++) {
                         rowSet.add(getRow(wfAssignment, multirowBaseObjectName, i, fieldMapping, object));
                     }
+                    
                 }
-            } else {
+            }
+            else {
                 rowSet.add(getRow(wfAssignment, null, null, fieldMapping, object));
             }
 
             if (rowSet.size() > 0) {
                 appService.storeFormData(appDef.getId(), appDef.getVersion().toString(), formDefId, rowSet, null);
             }
+            
+            if (multirowBaseObjectName != null && multirowBaseObjectNmae.)
         }
     }
 
